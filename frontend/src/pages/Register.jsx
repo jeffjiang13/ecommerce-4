@@ -23,13 +23,16 @@ const Register = () => {
       terms: false
     },
     onSubmit: values => {
+      console.log('Register form values:', values);
       if (values.phone.length === 11) {
         Signup(values.firstName, values.lastName, values.email, values.password, values.phone)
           .then(result => {
+            console.log('Signup response:', result); // Add this line
+
             if (result.data.newUser) {
               navigate('/login');
               toast({
-                title: 'Welcome to CLOTHIFY!',
+                title: 'Welcome to ChiqueChick!',
                 description: 'You have successfully registered.',
                 status: 'success',
                 duration: 2000,
