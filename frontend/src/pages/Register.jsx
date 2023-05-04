@@ -19,7 +19,7 @@ const Register = () => {
       lastName: '',
       email: '',
       password: '',
-      phone: '0',
+      phone: '',
       terms: false
     },
     onSubmit: values => {
@@ -115,7 +115,7 @@ const Register = () => {
             name='phone'
             maxLength={11}
             pattern='[0-9]'
-            placeholder='Enter Phone'
+            placeholder='Enter Phone #'
             onChange={handleChange}
             value={values.phone}
             onBlur={handleBlur}
