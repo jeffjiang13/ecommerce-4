@@ -29,7 +29,7 @@ const Register = () => {
             if (result.data.newUser) {
               navigate('/login');
               toast({
-                title: 'Welcome to ChiqueChick!',
+                title: 'Welcome to CLOTHIFY!',
                 description: 'You have successfully registered.',
                 status: 'success',
                 duration: 2000,
@@ -140,16 +140,7 @@ const Register = () => {
           {touched.password && <FormErrorMessage>{errors.password}</FormErrorMessage>}
         </FormControl>
         <Checkbox name='terms' isChecked={values.terms} onChange={handleChange} mt={5} >I agree the <strong>Terms of Service</strong> and <strong>Privacy Policy</strong>.</Checkbox>
-        <Button
-  mt={5}
-  width="100%"
-  variant="solid"
-  colorScheme="facebook"
-  disabled={!isValid}
-  onClick={handleSubmit}
->
-  Register
-</Button>
+        <Button mt={5} width='100%' variant='solid' colorScheme='facebook' disabled={!isValid} onClick={handleSubmit} >Register</Button>
         <br />
         <Text my={3} width='100%' textAlign='center' >or</Text>
         <Button width='100%' variant='outline' colorScheme='facebook' onClick={() => navigate('/login')} >Login</Button>
