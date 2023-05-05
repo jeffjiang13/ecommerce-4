@@ -87,7 +87,7 @@ const ImagesforAdmin = () => {
             carouselImages.length > 0 && carouselImages.map((image) => {
               return (
                 <Box key={image._id} minWidth={260} maxWidth={500} mx={{ base: 0, sm: 2, md: 3 }} my={3} >
-                  <Image src={image.url} width='100%' height='auto' />
+                  <Image src={image.url} width='400px' height='300px' />
                   <Button onClick={() => onClickDeleteCarouselImage(image._id)} colorScheme='facebook' width='100%'>Delete</Button>
                 </Box>
               )
@@ -107,7 +107,7 @@ const ImagesforAdmin = () => {
             miniImages.length > 0 && miniImages.map((image) => {
               return (
                 <Box key={image._id} width={260} mx={{ base: 0, sm: 2, md: 3 }} my={3} >
-                  <Image src={image.url} width='100%' height='auto' />
+                  <Image src={image.url} width='100%' height='300px' />
                   <Button onClick={() => onClickDeleteMiniImage(image._id)} colorScheme='facebook' width='100%'>Delete</Button>
                 </Box>
               )

@@ -42,6 +42,10 @@ const Favorites = () => {
           flexDirection='column'
           mt={10}
           p={3}
+          marginTop={20}
+          paddingTop={7}
+
+
         >
           <Icon color='#314E89' fontSize={100} as={Favorite} />
           <Heading textAlign='center' fontSize={30} mt={8}  >You don't have any favorite</Heading>
@@ -54,6 +58,8 @@ const Favorites = () => {
             onClick={() => navigate('/')}>
             Start Shopping
           </Button>
+          <br />
+
         </Box>
       )
     }

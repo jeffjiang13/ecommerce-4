@@ -56,7 +56,7 @@ mongoose.set('strictQuery', false); // To suppress the DeprecationWarning
 
 const connectToDatabase = async () => {
   try {
-    await mongoose.connect('mongodb+srv://jeffjiang13:Agneslover1@cluster0.kfwl3h5.mongodb.net/ecommerce-4?retryWrites=true&w=majority', {
+    await mongoose.connect('mongodb+srv://jeffjiang13:Agneslover1@cluster0.kfwl3h5.mongodb.net/?retryWrites=true&w=majority', {
       useNewUrlParser: true,
       useUnifiedTopology: true
     });

@@ -80,11 +80,12 @@ const Carousel = () => {
             <Box
               onClick={onClickImage}
               key={index}
-              height={{ base: '180px', sm: '400px', md: '500px', lg: '660px' }}
+              height={{ base: '180px', sm: '400px', md: '500px', lg: '700px' }}
+              width="100%"  // Set a fixed width (e.g., '100%') for the image.
               position="relative"
               backgroundPosition="center"
               backgroundRepeat="no-repeat"
-              backgroundSize="contain"
+              backgroundSize="cover"  // Change this from 'contain' to 'cover'.
               backgroundImage={`url(${image.url})`}
               cursor='pointer'
             />

@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
 const User = require('../models/User');
-
+const jwt = require('jsonwebtoken');
 exports.Register = async (req, res) => {
     try {
         const newUser = await User.create(req.body);
@@ -24,9 +24,12 @@ exports.Login = (req, res) => {
             if (user) {
                 bcrypt.compare(req.body.password, user.password, (err, same) => {
                     if (same) {
-                        var currentUser = user;
+                        // Generate a JWT token
+                        const token = jwt.sign({ id: user._id }, 'your_secret_key', { expiresIn: '1h' });
+
                         res.status(200).json({
-                            currentUser
+                            token,
+                            currentUser: user
                         });
                     } else {
                         res.status(200).json({

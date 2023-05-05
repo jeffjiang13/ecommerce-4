@@ -52,7 +52,7 @@ const Footer = () => {
       </Container>
       <Box bg='whitesmoke' display='flex' justifyContent='center'
       >
-        <Text colorScheme='blackAlpha' fontSize={20} p={5} >Made by <a href='https://github.com/jeffjiang13' rel='noreferrer' target='_blank' ><i>Jeff Jiang</i></a></Text>
+        <Text colorScheme='blackAlpha' fontSize={20} p={5} >Made by <a href='https://github.com/jeffjiang13' rel='noreferrer' target='_blank' ><i>Jeff Jiang. </i>All Rights Reserved.</a></Text>
       </Box>
     </Box>
   )

@@ -106,6 +106,8 @@ const Cart = () => {
         flexDirection='column'
         my={10}
         p={5}
+        marginTop={20}
+
       >
         <Icon color='#314E89' fontSize={100} as={ShoppingCart} />
         <Heading textAlign='center' fontSize={30} mt={8}  >You have nothing in your cart.</Heading>

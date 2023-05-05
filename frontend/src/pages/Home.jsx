@@ -49,7 +49,16 @@ const Home = () => {
       <SimpleGrid columns={{ base: 1, sm: 2 }} spacing={{ base: 3, md: 5 }} px={{ base: 3, md: 0 }} py={{ base: 3, md: 5 }} mt={5} maxWidth={1200} mx='auto' >
         {
           miniImages && miniImages.map((image, index) => {
-            return <Image key={index} cursor='pointer' onClick={(onClickImage)} src={image.url} />
+            return (
+              <Image
+                key={index}
+                cursor='pointer'
+                onClick={onClickImage}
+                src={image.url}
+                width="100%"
+                height={{ base: '1200px', sm: '400px', lg:"850px"}} // Set fixed height for different screen sizes
+                objectFit="cover" />
+            )
           })
         }
         {

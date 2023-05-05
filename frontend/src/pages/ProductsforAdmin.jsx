@@ -19,7 +19,8 @@ const ProductsforAdmin = () => {
       .then((result) => {
         setProducts(result.allProducts);
       });
-  });
+  }, []);
+
 
   const onClickEdit = (id) => {
     setIsEdit(true);
