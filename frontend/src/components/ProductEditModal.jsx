@@ -19,7 +19,7 @@ const ProductEditModal = ({ isOpen, onClose, isEdit, currentId }) => {
     const [selectedGenre, setSelectedGenre] = useState("");
     const [allGenres, setAllGenres] = useState([])
 
-    const { values, isValid, handleChange, handleSubmit, resetForm } = useFormik({
+    const { values, isValid, handleChange, handleSubmit, resetForm, errors } = useFormik({
         initialValues: {
             name: "",
             description: "",
@@ -107,8 +107,21 @@ const ProductEditModal = ({ isOpen, onClose, isEdit, currentId }) => {
             .then((result) => {
                 setAllCategories(result.category);
             });
-    };
 
+    };
+    const handleAddProduct = () => {
+        if (!isValid || imageUrl === "") {
+          toast({
+            title: 'Warning!',
+            description: 'Please fill in all required fields.',
+            status: 'warning',
+            duration: 2000,
+            isClosable: true,
+          });
+        } else {
+          handleSubmit();
+        }
+      };
     if (isEdit) {
         return (
             <Modal isOpen={isOpen} onClose={onClose} >
@@ -123,7 +136,7 @@ const ProductEditModal = ({ isOpen, onClose, isEdit, currentId }) => {
                         <Input mt={3} placeholder='Price' type='number' onInput={(e) => setPrice(e.target.value)} value={price} />
                     </ModalBody>
                     <ModalFooter>
-                        <Button colorScheme='facebook' onClick={onClickSave} >Save</Button>
+                    <Button colorScheme='facebook' onClick={onClickSave}>Save</Button>
                         <Button colorScheme='facebook' variant='ghost' ml={3} onClick={onClose}>
                             Close
                         </Button>
@@ -162,6 +175,12 @@ const ProductEditModal = ({ isOpen, onClose, isEdit, currentId }) => {
                             <option value="green">Green</option>
                             <option value="black">Black</option>
                             <option value="red">Red</option>
+                            <option value="Gray">Gray</option>
+                            <option value="Purple">Purple</option>
+                            <option value="Brown">Brown</option>
+                            <option value="Yellow">Yellow</option>
+                            <option value="Multi-Color">Multi-Color</option>
+
                         </Select>
                         <Select mt={3} name='gender' placeholder='Gender' onChange={handleChange} value={values.gender} >
                             <option value="man">Man</option>
@@ -171,7 +190,7 @@ const ProductEditModal = ({ isOpen, onClose, isEdit, currentId }) => {
                         <Input mt={3} placeholder='Price' type='number' name='price' onChange={handleChange} value={values.price} />
                     </ModalBody>
                     <ModalFooter>
-                        <Button colorScheme='facebook' onClick={handleSubmit} disabled={!isValid && imageUrl === ""} >Add</Button>
+                        <Button colorScheme='facebook' onClick={handleAddProduct} disabled={!isValid && imageUrl === ""} >Add</Button>
                         <Button colorScheme='facebook' variant='ghost' ml={3} onClick={onClose}>Close</Button>
                     </ModalFooter>
                 </ModalContent>

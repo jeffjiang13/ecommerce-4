@@ -98,7 +98,7 @@ const ClothesCard = ({ productId, isDelivered }) => {
   return (
     <>
       <Box
-        width='100%'
+        width='350px'
         display='flex'
         alignItems='center'
         flexDirection='column'
@@ -107,8 +107,8 @@ const ClothesCard = ({ productId, isDelivered }) => {
         mx={{ base: 0, md: 2 }}
       >
         <Image
-          width='100%'
-          height='auto'
+          width='350px'
+          height='500px'
           maxWidth={500}
           objectFit='cover'
           maxHeight={620}
@@ -129,7 +129,7 @@ const ClothesCard = ({ productId, isDelivered }) => {
             pr={5} pl={2}
           >
 
-            <Text onClick={() => navigate(`/product/${product._id}`, { state: { "productId": product._id } })} fontSize={26} fontWeight={500} >{product.price} $</Text>
+            <Text onClick={() => navigate(`/product/${product._id}`, { state: { "productId": product._id } })} fontSize={26} fontWeight={500} >${product.price} </Text>
             <Box display='flex' alignItems='center' margin='right' >
               {
                 inCart

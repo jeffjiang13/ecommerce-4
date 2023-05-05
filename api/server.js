@@ -1,4 +1,7 @@
+
 const express = require('express');
+const path = require('path');
+
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv').config();
@@ -17,6 +20,8 @@ const miniImageRoutes = require('./routes/miniImageRoutes');
 
 const app = express();
 const port = process.env.PORT || 4000;
+
+
 
 // MIDDLEWARES
 app.use(cors());
@@ -38,21 +43,34 @@ app.use('/minis', miniImageRoutes);
 // STRIPE CONNECTION
 app.post("/create-payment-intent", async (req, res) => {
   const { price } = req.body;
+  console.log('Price:', price);
 
   const paymentIntent = await stripe.paymentIntents.create({
-    amount: Number(price),
+    amount: Number(price) * 100, // Multiply the price by 100
     currency: "usd",
-    automatic_payment_methods: {
-      enabled: true,
-    },
+    payment_method_types: ["card"],
   });
+
+  console.log('Client secret:', paymentIntent.client_secret);
 
   res.status(200).send({
     clientSecret: paymentIntent.client_secret,
   });
 });
 
+
+// Serve your static files from the 'build' folder (in production)
+app.use(express.static(path.join(__dirname, 'client', 'build')));
+
+// All other routes should serve the index.html file
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+});
+
+
 mongoose.set('strictQuery', false); // To suppress the DeprecationWarning
+require('dotenv').config();
+console.log('MONGODB_URI:', process.env.MONGODB_URL);
 
 const connectToDatabase = async () => {
   try {

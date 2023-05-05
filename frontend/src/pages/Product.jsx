@@ -169,7 +169,7 @@ const Product = () => {
                   name='rating' />
                 <Text fontSize={16} fontWeight={500} > | {ratingCount} reviews</Text>
               </Box>
-              <Text mt={5} mb={3} fontSize={28} fontWeight={400} color='facebook.500' >Price : <b> {product.price}$ </b> </Text>
+              <Text mt={5} mb={3} fontSize={28} fontWeight={400} color='facebook.500' >Price : <b> ${product.price} </b> </Text>
               <Divider />
               <Text mt={3} fontSize={20} fontWeight={500} >Sizes</Text>
               <Box mt={3} display='flex' >

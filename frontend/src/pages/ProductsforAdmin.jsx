@@ -5,22 +5,25 @@ import { Delete, Edit } from '@mui/icons-material';
 import { deleteProduct, getAllProducts } from '../services/ProductServices';
 import ProductEditModal from '../components/ProductEditModal';
 
-
 const ProductsforAdmin = () => {
-
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [products, setProducts] = useState([]);
   const [isEdit, setIsEdit] = useState(false);
   const [currentId, setCurrentId] = useState("");
+  const [loading, setLoading] = useState(true);
   const toast = useToast();
 
   useEffect(() => {
     getAllProducts()
       .then((result) => {
         setProducts(result.allProducts);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error fetching products:', error);
+        setLoading(false);
       });
-  }, []);
-
+  }, [setProducts]);
 
   const onClickEdit = (id) => {
     setIsEdit(true);
@@ -56,7 +59,13 @@ const ProductsforAdmin = () => {
     onOpen(true);
   };
 
-  if (products.length > 0) {
+  if (loading) {
+    return (
+      <Box alignItems='center' display='flex' justifyContent='center' width='100%' minHeight='40vh' >
+        <CircularProgress isIndeterminate color='facebook.500' />
+      </Box>
+    );
+  } else {
     return (
       <Box>
         <TableContainer p={3} >
@@ -82,7 +91,7 @@ const ProductsforAdmin = () => {
                       <Td>{product.name}</Td>
                       <Td>{product.color}</Td>
                       <Td>{product.gender}</Td>
-                      <Td>{product.price} $</Td>
+                      <Td>${product.price}</Td>
                       <Td>
                         <Button onClick={() => onClickEdit(product._id)} colorScheme='facebook'><Edit /></Button>
                         <Button onClick={() => onClickDelete(product._id)} bg='whitesmoke' color='facebook.500'><Delete /></Button>
@@ -95,16 +104,9 @@ const ProductsforAdmin = () => {
           </Table>
         </TableContainer>
         <ProductEditModal isOpen={isOpen} onClose={onClose} isEdit={isEdit} currentId={currentId} />
-      </Box>
-    )
-  } else {
-    return (
-      <Box alignItems='center' display='flex' justifyContent='center' width='100%' minHeight='40vh' >
-        <CircularProgress isIndeterminate color='facebook.500' />
-      </Box>
-    )
-  }
-
+</Box>
+)
+}
 }
 
 export default ProductsforAdmin;

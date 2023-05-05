@@ -21,17 +21,19 @@ import ReportsforAdmin from './pages/ReportsforAdmin';
 import ImagesforAdmin from './pages/ImagesforAdmin';
 import { useUserContext } from './contexts/UserContext';
 import useGetUserRole from './hooks/useGetUserRole';
+import useScrollToTop from './hooks/useScrollToTop';
 
 const App = () => {
 
   const { currentUser } = useUserContext();
   const [admin] = useGetUserRole(currentUser);
+  useScrollToTop(); // <-- Add this line here
 
   return (
     <>
       <Navbar />
       <Routes>
-        <Route exact path='/' element={<Home />} />
+        <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/cart' element={<Cart />} />
