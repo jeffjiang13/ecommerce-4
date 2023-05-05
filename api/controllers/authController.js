@@ -3,41 +3,20 @@ const User = require('../models/User');
 
 exports.Register = async (req, res) => {
     try {
-      const { firstName, lastName, email, password, address, phone } = req.body;
+        const newUser = await User.create(req.body);
 
-      // Check if the email already exists
-      const existingUser = await User.findOne({ email });
-      if (existingUser) {
-        return res.status(400).json({
-          status: 'failed',
-          error: 'Email already exists',
+        res.status(201).json({
+            newUser
         });
-      }
-
-      // Hash the password
-      const hashedPassword = await bcrypt.hash(password, 10);
-
-      // Create the new user with the hashed password
-      const newUser = await User.create({
-        firstName,
-        lastName,
-        email,
-        password: hashedPassword,
-        address,
-        phone,
-      });
-
-      res.status(201).json({
-        newUser,
-      });
     } catch (error) {
-      res.status(400).json({
-        status: 'failed',
-        error,
-      });
-    }
-  };
+      console.log('Register Error:', error); // Add this line
 
+        res.status(400).json({
+            status: 'failed',
+            error
+        });
+    }
+};
 
 exports.Login = (req, res) => {
     try {

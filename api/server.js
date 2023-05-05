@@ -35,28 +35,39 @@ app.use('/reports', reportRoutes);
 app.use('/images', imageRoutes);
 app.use('/minis', miniImageRoutes);
 
-
 // STRIPE CONNECTION
 app.post("/create-payment-intent", async (req, res) => {
-    const { price } = req.body;
+  const { price } = req.body;
 
-    const paymentIntent = await stripe.paymentIntents.create({
-        amount: Number(price),
-        currency: "usd",
-        automatic_payment_methods: {
-            enabled: true,
-        },
-    });
+  const paymentIntent = await stripe.paymentIntents.create({
+    amount: Number(price),
+    currency: "usd",
+    automatic_payment_methods: {
+      enabled: true,
+    },
+  });
 
-    res.status(200).send({
-        clientSecret: paymentIntent.client_secret,
-    });
+  res.status(200).send({
+    clientSecret: paymentIntent.client_secret,
+  });
 });
 
-mongoose.connect(process.env.MONGODB_URL, () => {
+mongoose.set('strictQuery', false); // To suppress the DeprecationWarning
+
+const connectToDatabase = async () => {
+  try {
+    await mongoose.connect('mongodb+srv://jeffjiang13:Agneslover1@cluster0.kfwl3h5.mongodb.net/ecommerce-4?retryWrites=true&w=majority', {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
     console.log('Successfully connected to database.');
-});
+  } catch (error) {
+    console.error('Error connecting to the database:', error);
+  }
+};
+
+connectToDatabase();
 
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}.`);
+  console.log(`Server is running on port ${port}.`);
 });
