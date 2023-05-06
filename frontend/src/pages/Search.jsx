@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Box, SimpleGrid, Button, Select, Text, Icon, Heading } from '@chakra-ui/react';
+import { Box, SimpleGrid, Button, Select, Text, Icon, Heading, Spinner } from '@chakra-ui/react';
 
 import ClothesCard from '../components/ClothesCard';
 import FilterMenu from '../components/FilterMenu';
@@ -16,22 +16,25 @@ const Search = () => {
   const [openFilter, setOpenFilter] = useState(true);
   const [products, setProducts] = useState([]);
   const [sortBy, setSortBy] = useState("recommended");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (state !== null) {
-      getProductByCategoryId(state.categoryId)
-        .then((result) => {
-          setProducts(result.products);
-        });
-      setSortBy("recommended");
-    }
-    if (search !== "" && search !== " " && search !== null && search !== undefined && canSearch) {
-      getProductBySearch(search)
-        .then((result) => {
-          setProducts(result.products);
-        });
-      setSortBy("recommended");
-    }
+    const fetchProducts = async () => {
+      setLoading(true);
+      if (state !== null) {
+        const result = await getProductByCategoryId(state.categoryId);
+        setProducts(result.products);
+        setSortBy("recommended");
+      }
+      if (search !== "" && search !== " " && search !== null && search !== undefined && canSearch) {
+        const result = await getProductBySearch(search);
+        setProducts(result.products);
+        setSortBy("recommended");
+      }
+      setLoading(false);
+    };
+
+    fetchProducts();
   }, [state, search, canSearch]);
 
   const handleChange = (e) => {
@@ -51,6 +54,14 @@ const Search = () => {
     setProducts(products.sort((a, b) => (b.price - a.price)));
   };
 
+  if (loading) {
+    return (
+      <Box display='flex' justifyContent='center' alignItems='center' height='100vh'>
+        <Spinner size='xl' color='blue.500' />
+      </Box>
+    );
+  }
+
   return (
     <Box px={{ base: 2, sm: 3, md: 5 }} my={3} py={3} backgroundColor='whitesmoke' >
       <Box
@@ -69,7 +80,7 @@ const Search = () => {
       <SimpleGrid minChildWidth={280} gap={3} spacingX={5} >
         <FilterMenu openFilter={openFilter} columns={{ base: 1, sm: 2, md: 2, lg: 3, xl: 4 }} setProducts={setProducts} setSortBy={setSortBy} />
         {
-          products && products.map((product, index) => {
+           products && products.map((product, index) => {
             return <ClothesCard key={index} productId={product._id} />
           })
         }

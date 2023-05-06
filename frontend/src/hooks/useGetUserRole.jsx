@@ -1,25 +1,19 @@
-import { useState, useEffect } from 'react'; // Add missing imports
+import {useState, useEffect} from 'react';
 
 import { getUserById } from '../services/UserServices';
 
 const useGetUserRole = (userId) => {
 
-    const [admin, setAdmin] = useState(false);
+    const [admin,setAdmin]=useState(false);
 
-    useEffect(() => {
-        if (localStorage.getItem('isAdmin') === 'true') {
-            setAdmin(true);
-        } else if (localStorage.getItem('isAdmin') === 'false') {
-            setAdmin(false);
-        } else {
-            getUserById(userId)
-                .then((result) => {
-                    setAdmin(result.user.admin);
-                });
-        }
-    }, [userId]);
+    useEffect(()=>{
+        getUserById(userId)
+        .then((result)=>{
+            setAdmin(result.user.admin);
+        });
+    },[userId]);
 
-    return [admin];
+  return [admin];
 }
 
 export default useGetUserRole;

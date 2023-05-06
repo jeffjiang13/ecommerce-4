@@ -23,9 +23,9 @@ import {
 import { useSearchContext } from "../contexts/SearchContext";
 
 const FilterMenu = ({ openFilter, setProducts, setSortBy }) => {
-  const { canSearch, setCanSearch } = useSearchContext();
+  const { canSearch, setCanSearch, search, setSearch, } = useSearchContext();
 
-  const [minPrice, setMinPrice] = useState(30);
+  const [minPrice, setMinPrice] = useState(10);
   const [maxPrice, setMaxPrice] = useState(250);
   const [gender, setGender] = useState("all");
   const [color, setColor] = useState("all");
@@ -36,6 +36,8 @@ const FilterMenu = ({ openFilter, setProducts, setSortBy }) => {
     setGender("all");
     setMinPrice(10);
     setMaxPrice(250);
+    setSearch("")
+    window.scrollTo(0, 0);
   }, [canSearch]);
 
   const onChangePriceRange = (val) => {
@@ -92,7 +94,7 @@ const FilterMenu = ({ openFilter, setProducts, setSortBy }) => {
           onChangeEnd={onChangePriceRange}
           defaultValue={[minPrice, maxPrice]}
           max={250}
-          min={30}
+          min={10}
         >
           <RangeSliderTrack>
             <RangeSliderFilledTrack bg="facebook.500" />
