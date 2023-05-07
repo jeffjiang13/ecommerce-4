@@ -25,7 +25,7 @@ const Dropdown = ({ title, genreId }) => {
         <Box pe={{base:2,md:10}}>
             <Menu isOpen={isOpen} >
                 <MenuButton
-                    color='blackAlpha.700'
+                    color='white'
                     fontSize={20}
                     fontWeight={500}
                     variant='outline'
@@ -33,7 +33,7 @@ const Dropdown = ({ title, genreId }) => {
                     onMouseLeave={onClose}
                     borderBottom='3px solid white'
                     transition={.5}
-                    _hover={{color:'facebook.500',borderBottom:'3px solid #385898'}}
+                    _hover={{color:'black',borderBottom:'3px solid #385898'}}
                 >{title}</MenuButton>
                 <MenuList
                 onMouseEnter={onOpen}

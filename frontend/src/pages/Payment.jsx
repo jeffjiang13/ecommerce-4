@@ -5,7 +5,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { Box } from '@chakra-ui/react';
 import '../payment.css';
 
-import CheckoutForm from "../components/ChackoutForm";
+import CheckoutForm from "../components/CheckoutForm";
 
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_API_KEY);

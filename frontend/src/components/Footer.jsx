@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Text, IconButton, Container } from '@chakra-ui/react';
-import { Apple, Facebook, Google, Instagram, Twitter, YouTube } from '@mui/icons-material';
+import { Apple, Facebook, GitHub, Google, Instagram, Twitter, YouTube } from '@mui/icons-material';
 
 const Footer = () => {
   return (
@@ -15,17 +15,19 @@ const Footer = () => {
           <Box py={5}>
             <Text mb={1} textAlign='center' color='blackAlpha.700' fontSize={20} fontWeight={600} >Follow Us</Text>
             <Box display='flex' justifyContent='center' >
-              <IconButton mr={3} colorScheme='blackAlpha' variant='ghost' _hover={{ color: '#C13584' }} as={Instagram} />
+              <IconButton mr={3} colorScheme='blackAlpha' variant='ghost' _hover={{ color: '#d62976' }} as={Instagram} />
               <IconButton mr={3} colorScheme='blackAlpha' variant='ghost' _hover={{ color: 'facebook.500' }} as={Facebook} />
               <IconButton mr={3} colorScheme='blackAlpha' variant='ghost' _hover={{ color: 'red' }} as={YouTube} />
-              <IconButton colorScheme='blackAlpha' variant='ghost' _hover={{ color: 'twitter.500' }} as={Twitter} />
+              <IconButton mr={3} colorScheme='blackAlpha' variant='ghost' _hover={{ color: 'twitter.500' }} as={Twitter} />
+
+
             </Box>
           </Box>
           <Box py={5}>
             <Text mb={1} textAlign='center' color='blackAlpha.700' fontSize={20} fontWeight={600} >Download App</Text>
             <Box display='flex' justifyContent='center' >
-              <IconButton mr={3} colorScheme='blackAlpha' variant='ghost' _hover={{ color: '#000' }} as={Apple} />
-              <IconButton ml={3} colorScheme='blackAlpha' variant='ghost' _hover={{ color: 'facebook.500' }} as={Google} />
+              <IconButton mr={3} colorScheme='blackAlpha' variant='ghost' _hover={{ color: '#555555' }} as={Apple} />
+              <IconButton ml={3} colorScheme='blackAlpha' variant='ghost' _hover={{ color: '#0F9D58' }} as={Google} />
             </Box>
           </Box>
         </Container>
@@ -50,9 +52,9 @@ const Footer = () => {
               <Text mt={2} _hover={{ textDecoration: 'underline' }} >Return Policies</Text>
             </Box>
       </Container>
-      <Box bg='whitesmoke' display='flex' justifyContent='center'
+      <Box bg='facebook.500' display='flex' justifyContent='center' color={'white'}
       >
-        <Text colorScheme='blackAlpha' fontSize={20} p={5} >Made by <a href='https://github.com/jeffjiang13' rel='noreferrer' target='_blank' ><i>Jeff Jiang. </i>All Rights Reserved.</a></Text>
+        <Text colorScheme='blackAlpha' fontSize={20} p={5} >Made by <a href='https://github.com/jeffjiang13' rel='noreferrer' target='_blank' ><i>Jeff Jiang. </i></a>All Rights Reserved.</Text>
       </Box>
     </Box>
   )

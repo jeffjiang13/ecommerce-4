@@ -169,7 +169,10 @@ const Navbar = () => {
         display={{ base: 'none', md: 'flex' }}
         py={{ base: 1, md: 2 }}
         ps={5}
-        width='100%'>
+        width='100%'
+        bg={'facebook.500'}
+
+        >
         {
           genres.map((genre) => {
             return genre.status && <Dropdown key={genre.name} title={genre.name} genreId={genre._id} />

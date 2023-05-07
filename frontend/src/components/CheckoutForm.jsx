@@ -6,7 +6,7 @@ import { addOrder, deleteOrder } from "../services/OrderServices";
 import { useUserContext } from "../contexts/UserContext";
 import { useCartContext } from '../contexts/CartContext';
 
-const ChackoutForm = ({ address }) => {
+const CheckoutForm = ({ address }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [cookies, setCookie, removeCookie] = useCookies(['cart']);
@@ -118,4 +118,4 @@ const ChackoutForm = ({ address }) => {
     );
 }
 
-export default ChackoutForm;
+export default CheckoutForm;

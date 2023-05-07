@@ -27,8 +27,7 @@ const App = () => {
 
   const { currentUser } = useUserContext();
   const [admin] = useGetUserRole(currentUser);
-  useScrollToTop(); // <-- Add this line here
-
+  useScrollToTop();
   return (
     <>
       <Navbar />
@@ -56,7 +55,7 @@ const App = () => {
               <Route path='/admin/reports' element={<ReportsforAdmin />} />
             </>
             :
-            <Route path='/admin/*' element={<Navigate to='/' />} />
+            <Route path='/admin/*' element={<Navigate to='admin/products' />} />
         }
         <Route path='*' element={<Navigate to='/' />} />
       </Routes>

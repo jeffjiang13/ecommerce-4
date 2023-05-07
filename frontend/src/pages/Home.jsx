@@ -55,9 +55,11 @@ const Home = () => {
                 cursor='pointer'
                 onClick={onClickImage}
                 src={image.url}
-                width="100%"
-                height={{ base: '1200px', sm: '400px', lg:"850px"}} // Set fixed height for different screen sizes
-                objectFit="cover" />
+                width="400px"
+                height={{ base: '100%', sm: '400px', lg:"550px"}}
+                objectFit="cover"
+
+                />
             )
           })
         }
