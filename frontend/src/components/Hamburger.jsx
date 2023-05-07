@@ -7,13 +7,17 @@ import { getAllGenres } from '../services/GenreServices';
 import useGetUserRole from '../hooks/useGetUserRole';
 import { useUserContext } from '../contexts/UserContext';
 import CategoryMenuItems from './CategoryMenuItems';
+import { useBreakpointValue } from '@chakra-ui/react';
+import { useCookies } from 'react-cookie';
 
 const Hamburger = ({ base, sm, md }) => {
 
     const navigate = useNavigate();
-    const { currentUser } = useUserContext();
+    const { currentUser, setCurrentUser } = useUserContext();
     const [admin] = useGetUserRole(currentUser);
     const [genres, setGenres] = useState([]);
+    const isMobile = useBreakpointValue({ base: true, md: false });
+    const [removeCookie] = useCookies(['currentUser']);
 
     useEffect(() => {
         getAllGenres()
@@ -23,7 +27,9 @@ const Hamburger = ({ base, sm, md }) => {
     }, []);
 
     const onClickLogout = () => {
-
+        removeCookie('currentUser', { path: '/' });
+        setCurrentUser('');
+        navigate('/login');
     };
 
     return (
@@ -38,8 +44,10 @@ const Hamburger = ({ base, sm, md }) => {
                     maxWidth='50px'
                 />
                 <MenuList
-                    width='100vw'
+                    width={isMobile ? '100vw' : 'auto'}
                     zIndex={200}
+                    maxHeight={isMobile ? '80vh' : 'auto'}
+                    overflowY={isMobile ? 'scroll' : 'visible'}
                 >
                     {
                         admin && currentUser &&
@@ -63,7 +71,7 @@ const Hamburger = ({ base, sm, md }) => {
                     }{
                         !currentUser &&
                         <MenuGroup>
-                            <MenuItem onClick={() => navigate('/favorites')} ><Person sx={{ marginRight: 2 }} />Login</MenuItem>
+                            <MenuItem onClick={() => navigate('/login')} ><Person sx={{ marginRight: 2 }} />Login</MenuItem>
                             <MenuItem onClick={() => navigate('/favorites')} ><Favorite sx={{ marginRight: 2 }} />Favorites</MenuItem>
                             <MenuItem onClick={() => navigate('/cart')} ><ShoppingCart sx={{ marginRight: 2 }} />Cart</MenuItem>
                         </MenuGroup>
