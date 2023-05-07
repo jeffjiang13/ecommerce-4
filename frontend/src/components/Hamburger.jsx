@@ -51,37 +51,37 @@ const Hamburger = ({ base, sm, md }) => {
                 >
                     {
                         admin && currentUser &&
-                        <MenuGroup title='Admin'>
-                            <MenuItem onClick={() => navigate('/admin/products')} ><Inventory sx={{ marginRight: 2 }} />Products</MenuItem>
-                            <MenuItem onClick={() => navigate('/admin/categories')} ><Edit sx={{ marginRight: 2 }} />Genres and Categories</MenuItem>
-                            <MenuItem onClick={() => navigate('/admin/images')} ><MapsHomeWork sx={{ marginRight: 2 }} />Home Page Images</MenuItem>
-                            <MenuItem onClick={() => navigate('/admin/reports')} ><Report sx={{ marginRight: 2 }} />Reports</MenuItem>
-                            <MenuItem onClick={() => navigate('/admin/orders')} ><ShoppingBag sx={{ marginRight: 2 }} />Orders</MenuItem>
-                            <MenuItem onClick={onClickLogout} ><ExitToApp sx={{ marginRight: 2 }} />Log out</MenuItem>
+                        <MenuGroup color='facebook.500' fontWeight='bold' title='Admin'>
+                            <MenuItem color='facebook.500' onClick={() => navigate('/admin/products')} ><Inventory sx={{ marginRight: 2 }} />Products</MenuItem>
+                            <MenuItem color='facebook.500' onClick={() => navigate('/admin/categories')} ><Edit sx={{ marginRight: 2 }} />Genres and Categories</MenuItem>
+                            <MenuItem color='facebook.500' onClick={() => navigate('/admin/images')} ><MapsHomeWork sx={{ marginRight: 2 }} />Home Page Images</MenuItem>
+                            <MenuItem color='facebook.500' onClick={() => navigate('/admin/reports')} ><Report sx={{ marginRight: 2 }} />Reports</MenuItem>
+                            <MenuItem color='facebook.500' onClick={() => navigate('/admin/orders')} ><ShoppingBag sx={{ marginRight: 2 }} />Orders</MenuItem>
+                            <MenuItem color='facebook.500' onClick={onClickLogout} ><ExitToApp sx={{ marginRight: 2 }} />Log out</MenuItem>
                         </MenuGroup>
                     }{
                         !admin && currentUser &&
-                        <MenuGroup title='Account'>
-                            <MenuItem onClick={() => navigate('/infos')} ><Person sx={{ marginRight: 2 }} /> My Informations</MenuItem>
-                            <MenuItem onClick={() => navigate('/orders')} ><ShoppingBag sx={{ marginRight: 2 }} /> Orders</MenuItem>
-                            <MenuItem onClick={() => navigate('/favorites')} ><Favorite sx={{ marginRight: 2 }} />Favorites</MenuItem>
-                            <MenuItem onClick={() => navigate('/cart')} ><ShoppingCart sx={{ marginRight: 2 }} />Cart</MenuItem>
-                            <MenuItem onClick={onClickLogout} ><ExitToApp sx={{ marginRight: 2 }} />Log out</MenuItem>
+                        <MenuGroup color='facebook.500' fontWeight='bold' title='Account'>
+                            <MenuItem color='facebook.500' onClick={() => navigate('/infos')} ><Person sx={{ marginRight: 2 }} /> My Informations</MenuItem>
+                            <MenuItem color='facebook.500' onClick={() => navigate('/orders')} ><ShoppingBag sx={{ marginRight: 2 }} /> Orders</MenuItem>
+                            <MenuItem color='facebook.500' onClick={() => navigate('/favorites')} ><Favorite sx={{ marginRight: 2 }} />Favorites</MenuItem>
+                            <MenuItem color='facebook.500' onClick={() => navigate('/cart')} ><ShoppingCart sx={{ marginRight: 2 }} />Cart</MenuItem>
+                            <MenuItem color='facebook.500' onClick={onClickLogout} ><ExitToApp sx={{ marginRight: 2 }} />Log out</MenuItem>
                         </MenuGroup>
                     }{
                         !currentUser &&
                         <MenuGroup>
-                            <MenuItem onClick={() => navigate('/login')} ><Person sx={{ marginRight: 2 }} />Login</MenuItem>
-                            <MenuItem onClick={() => navigate('/favorites')} ><Favorite sx={{ marginRight: 2 }} />Favorites</MenuItem>
-                            <MenuItem onClick={() => navigate('/cart')} ><ShoppingCart sx={{ marginRight: 2 }} />Cart</MenuItem>
+                            <MenuItem color='facebook.500' onClick={() => navigate('/login')} ><Person sx={{ marginRight: 2 }} />Login</MenuItem>
+                            <MenuItem color='facebook.500' onClick={() => navigate('/favorites')} ><Favorite sx={{ marginRight: 2 }} />Favorites</MenuItem>
+                            <MenuItem color='facebook.500' onClick={() => navigate('/cart')} ><ShoppingCart sx={{ marginRight: 2 }} />Cart</MenuItem>
                         </MenuGroup>
                     }
                     <MenuDivider />
                     {
                         genres.length > 0 && genres.map((genre) => {
                             return (
-                                <MenuGroup key={genre._id} title={genre.name}>
-                                    <CategoryMenuItems genreId={genre._id} />
+                                <MenuGroup fontWeight='bold' color='facebook.500' textDecoration='underline' key={genre._id} title={genre.name}>
+                                    <CategoryMenuItems color='black' genreId={genre._id} />
                                 </MenuGroup>
                             )
                         })

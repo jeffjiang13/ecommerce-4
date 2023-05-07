@@ -86,7 +86,7 @@ const ProductsforAdmin = () => {
                 products.map((product) => {
                   return (
                     <Tr key={product._id}>
-                      <Td><Image width={70} height={100} src={product.imageUrl} /></Td>
+                      <Td><Image width={70} height={85} src={product.imageUrl} /></Td>
                       <Td>{product._id}</Td>
                       <Td>{product.name}</Td>
                       <Td>{product.color}</Td>

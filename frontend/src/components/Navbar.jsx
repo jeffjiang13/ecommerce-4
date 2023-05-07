@@ -100,7 +100,7 @@ const Navbar = () => {
                   <Text color='inherit' fontWeight={500} >Account</Text>
                   <MenuButton />
                   <MenuList >
-                    <MenuGroup title='Account' >
+                    <MenuGroup fontWeight='bold' title='Account' >
                       <MenuItem onClick={() => navigate('/infos')} ><Person sx={{ marginRight: 2 }} /> My Informations</MenuItem>
                       <MenuItem onClick={() => navigate('/orders')} ><ShoppingBag sx={{ marginRight: 2 }} /> Orders</MenuItem>
                     </MenuGroup>
@@ -123,7 +123,7 @@ const Navbar = () => {
                   <Text color='inherit' fontWeight={500} >Admin</Text>
                   <MenuButton />
                   <MenuList >
-                    <MenuGroup title='Admin' >
+                    <MenuGroup fontWeight='bold' title='Admin' >
                       <MenuItem onClick={() => navigate('/admin/products')} ><Inventory sx={{ marginRight: 2 }} />Products</MenuItem>
                       <MenuItem onClick={() => navigate('/admin/categories')} ><Edit sx={{ marginRight: 2 }} />Genres and Categories</MenuItem>
                       <MenuItem onClick={() => navigate('/admin/images')} ><MapsHomeWork sx={{ marginRight: 2 }} />Home Page Images</MenuItem>

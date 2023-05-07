@@ -28,8 +28,8 @@ const Carousel = () => {
   const [images, setImages] = useState([]);
   const [slider, setSlider] = useState("");
 
-  const top = useBreakpointValue({ base: '90%', sm: '50%' });
-  const side = useBreakpointValue({ base: '30%', sm: '10px' });
+  const top = useBreakpointValue({ base: '50%', sm: '50%' });
+  const side = useBreakpointValue({ base: '1px', sm: '1px' });
 
   useEffect(() => {
     getAllImages()
@@ -80,7 +80,7 @@ const Carousel = () => {
             <Box
               onClick={onClickImage}
               key={index}
-              height={{ base: '180px', sm: '400px', md: '500px', lg: '700px' }}
+              height={{ base: '400px', sm: '400px', md: '500px', lg: '700px' }}
               width="100%"
               position="relative"
               backgroundPosition="center"

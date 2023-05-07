@@ -40,6 +40,7 @@ const ProductEditModal = ({ isOpen, onClose, isEdit, currentId }) => {
                             duration: 2000,
                             isClosable: true
                         });
+
                     } else {
                         onClose(true);
                         resetForm();
@@ -50,6 +51,8 @@ const ProductEditModal = ({ isOpen, onClose, isEdit, currentId }) => {
                             duration: 2000,
                             isClosable: true
                         });
+                        window.location.reload();
+
                     }
                 });
         },
@@ -92,6 +95,8 @@ const ProductEditModal = ({ isOpen, onClose, isEdit, currentId }) => {
                         duration: 2000,
                         isClosable: true
                     });
+                    window.location.reload();
+
                 }
             })
     };
