@@ -50,6 +50,8 @@ const ProductsforAdmin = () => {
             duration: 2000,
             isClosable: true
           });
+          window.location.reload();
+
         }
       })
   };
