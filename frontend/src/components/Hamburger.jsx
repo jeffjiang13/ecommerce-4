@@ -17,7 +17,7 @@ const Hamburger = ({ base, sm, md }) => {
     const [admin] = useGetUserRole(currentUser);
     const [genres, setGenres] = useState([]);
     const isMobile = useBreakpointValue({ base: true, md: false });
-    const [removeCookie] = useCookies(['currentUser']);
+    const [cookies, setCookie, removeCookie] = useCookies(['currentUser']);
 
     useEffect(() => {
         getAllGenres()
