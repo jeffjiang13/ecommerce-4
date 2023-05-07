@@ -1,9 +1,40 @@
+<div align="center" id="top">
+  <img src="./frontend/public/favicon.ico" alt="Ecommerce App 2023" />
 
-# ChiqueChick
+  &#xa0;
 
-This application is a classic clothes sales app. People can buy somethings and write reviews about them.
-They can add favorites if they like. they can track their active orders and view order history.
-Admin can add, edit and remove new categories and products and  edit ads and banners on the homepage.
+  <a href="https://jj-ecommerce-1.cyclic.app">Demo</a>
+</div>
+
+<h1 align="center">ChiqueChick</h1>
+
+<p align="center">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/jeffjiang13/ecommerce-4?color=56BEB8">
+
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/jeffjiang13/ecommerce-4?color=56BEB8">
+
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/jeffjiang13/ecommerce-4?color=56BEB8">
+
+  <img alt="License" src="https://img.shields.io/github/license/jeffjiang13/ecommerce-4?color=56BEB8">
+
+
+An online clothing store application built with React, Chakra UI, and a custom back-end server. The application offers a seamless shopping experience for users to browse, search, and purchase clothing items. Users can also manage their account, view their order history, and maintain a list of favorite items.
+
+## Features
+- Browse clothing items by category and style
+- Search for clothing items using keywords
+- Responsive design for desktop and mobile devices
+- User account management, including login, registration, and password reset
+- Order history and tracking
+- Favorites list to save items for later
+- Shopping cart functionality
+- Admin panel for managing products, categories, images, and reports
+- Technologies Used
+- React for the front-end
+- Chakra UI for the user interface components and theming
+- React Router for client-side routing
+- Custom back-end server for handling data and user authentication
+- MongoDB for the database
 
 ## Built with
 
@@ -40,7 +71,7 @@ Admin can add, edit and remove new categories and products and  edit ads and ban
 Clone the repository
 
 ```
-git clone https://github.com/AhmedSemih/MERN-Stack-eCommerce-App.git
+git clone https://github.com/jeffjiang13/ecommerce-4
 ```
 
 After getting the starter files, you must to go both file directories and run
