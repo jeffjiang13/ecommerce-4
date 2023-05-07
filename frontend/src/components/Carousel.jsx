@@ -81,11 +81,11 @@ const Carousel = () => {
               onClick={onClickImage}
               key={index}
               height={{ base: '180px', sm: '400px', md: '500px', lg: '700px' }}
-              width="100%"  // Set a fixed width (e.g., '100%') for the image.
+              width="100%"
               position="relative"
               backgroundPosition="center"
               backgroundRepeat="no-repeat"
-              backgroundSize="cover"  // Change this from 'contain' to 'cover'.
+              backgroundSize="cover"
               backgroundImage={`url(${image.url})`}
               cursor='pointer'
             />
