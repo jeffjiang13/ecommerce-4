@@ -1,7 +1,5 @@
-<div align="center" id="top">
+<div align="center" id="top" className="mb-10">
   <img src="./frontend/public/favicon.ico" alt="Ecommerce App 2023" />
-
-  <br />
 
   <img src="./frontend/public/port6.png" alt="Ecommerce App 2023" />
 
