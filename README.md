@@ -1,9 +1,9 @@
 <div align="center" id="top" className="mb-10">
   <img src="./frontend/public/favicon.ico" alt="Ecommerce App 2023" />
 
-  <img src="./frontend/public/port6.png" alt="Ecommerce App 2023" />
-
 &#xa0;
+
+  <img src="./frontend/public/port6.png" alt="Ecommerce App 2023" />
 
 <a href="https://ecommerce-4.vercel.app">Demo</a>
 
