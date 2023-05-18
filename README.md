@@ -1,9 +1,11 @@
 <div align="center" id="top">
   <img src="./frontend/public/favicon.ico" alt="Ecommerce App 2023" />
+    <img src="./frontend/public/port6.png" alt="Ecommerce App 2023" />
+
 
   &#xa0;
 
-  <a href="https://jj-ecommerce-1.cyclic.app">Demo</a>
+  <a href="https://ecommerce-4.vercel.app">Demo</a>
 </div>
 
 <h1 align="center">ChiqueChick</h1>
