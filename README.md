@@ -3,7 +3,7 @@
 
   <br />
 
-    <img src="./frontend/public/port6.png" alt="Ecommerce App 2023" />
+  <img src="./frontend/public/port6.png" alt="Ecommerce App 2023" />
 
 
   &#xa0;
