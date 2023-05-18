@@ -5,10 +5,10 @@
 
   <img src="./frontend/public/port6.png" alt="Ecommerce App 2023" />
 
+&#xa0;
 
-  &#xa0;
+<a href="https://ecommerce-4.vercel.app">Demo</a>
 
-  <a href="https://ecommerce-4.vercel.app">Demo</a>
 </div>
 
 <h1 align="center">ChiqueChick</h1>
@@ -22,10 +22,10 @@
 
   <img alt="License" src="https://img.shields.io/github/license/jeffjiang13/ecommerce-4?color=56BEB8">
 
-
 An online clothing store application built with React, Chakra UI, and a custom back-end server. The application offers a seamless shopping experience for users to browse, search, and purchase clothing items. Users can also manage their account, view their order history, and maintain a list of favorite items.
 
 ## Features
+
 - Browse clothing items by category and style
 - Search for clothing items using keywords
 - Responsive design for desktop and mobile devices
