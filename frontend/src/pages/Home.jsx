@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Box, Text, Container, SimpleGrid, Image, CircularProgress } from '@chakra-ui/react';
+import { Box, Text, Container, SimpleGrid, Image, CircularProgress, VStack } from '@chakra-ui/react';
 import { AccountBalanceWallet, AssignmentReturn, WorkspacePremium } from '@mui/icons-material';
 
 import Carousel from '../components/Carousel';
@@ -12,17 +12,30 @@ const Home = () => {
   const navigate = useNavigate();
   const { setSearch } = useSearchContext();
   const [miniImages, setMiniImages] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getAllMiniImages()
       .then((result) => {
         setMiniImages(result.miniImages);
+        setIsLoading(false);
       });
   }, []);
 
   const onClickImage = () => {
     setSearch('a');
     navigate('/search');
+  }
+
+  if (isLoading) {
+    return (
+      <Container centerContent>
+        <VStack spacing={4} display='flex' justifyContent='center' alignItems='center' height='100vh'>
+          <CircularProgress isIndeterminate color='facebook.500' />
+          <Text>Loading... Please be patient as some apps are hosted on render.com, which may take a moment to load. These apps are designed to automatically spin down after 15 minutes of inactivity, conserving resources. They will promptly spin up again upon your visit. Thank you for your understanding.</Text>
+        </VStack>
+      </Container>
+    );
   }
 
   return (
