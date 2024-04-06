@@ -80,11 +80,12 @@ const FilterMenu = ({ openFilter, setProducts, setSortBy }) => {
     <Box
       display={openFilter ? "block" : "none"}
       minHeight={725}
-      maxHeight={850}
+      maxHeight={1000}
       p={3}
       backgroundColor="#fff"
       maxWidth={400}
       marginBottom={20} // Add padding bottom to give space for the button
+
     >
       <Box px={2}>
         <Text fontSize={20} my={3} fontWeight={500}>

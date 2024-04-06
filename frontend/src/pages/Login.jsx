@@ -36,11 +36,11 @@ const Login = () => {
                 isClosable: true
               });
               navigate('/');
-                if (remember) {
+                // if (remember) {
                   setCookie('currentUser', result.data.currentUser._id, { path: '/' });
-                } else {
-                  removeCookie('currentUser', { path: '/' });
-                };
+                // } else {
+                //   removeCookie('currentUser', { path: '/' });
+                // };
             } else {
               resetForm();
               toast({

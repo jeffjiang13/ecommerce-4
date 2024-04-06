@@ -86,7 +86,7 @@ const Search = () => {
         }
         {
           products.length === 0 &&
-          <Box display='flex' justifyContent='start'>
+          <Box display='flex' justifyContent='center'>
             <Box
               display='flex'
               justifyContent='center'
