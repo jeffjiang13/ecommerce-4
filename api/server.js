@@ -60,11 +60,11 @@ app.post("/create-payment-intent", async (req, res) => {
 
 
 // Serve your static files from the 'build' folder (in production)
-app.use(express.static(path.join(__dirname, 'frontend'|| 'client', 'build')));
+app.use(express.static(path.join(__dirname, '..', 'frontend'|| 'client', 'build')));
 
 // All other routes should serve the index.html file
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend'||'client', 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, '..', 'frontend'||'client', 'build', 'index.html'));
 });
 
 
